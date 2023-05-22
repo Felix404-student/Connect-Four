@@ -1,0 +1,67 @@
+/* game board table */
+#board td {
+  width: 60px;
+  height: 60px;
+  border: solid 2px #666;
+}
+
+/* pieces are div within game table cells drawn as colored circles */
+.piece {
+  border-radius: 50%;
+  margin: 3px;
+  width: 90%;
+  height: 90%;
+  animation: append-animate 0.5s linear;
+}
+
+/* makes pieces red/blue, depending on player 1/2 */
+.player1piece {
+  background-color: red;
+}
+.player2piece {
+  background-color: blue;
+}
+
+/* makes label red/blue, depending on player 1/2 */
+.player1 {
+  color: red;
+}
+.player2 {
+  color: blue;
+}
+
+/* column-top is table row of clickable areas for each column */
+#column-top td {
+  border: dashed 1px lightgray;
+}
+
+#column-top td:hover {
+  background-color: darkgrey;
+}
+
+h1 {
+  margin-top: 1px;
+  margin-bottom: 7px;;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  line-height: 10px;
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes append-animate {
+	from {
+		transform: translateY(-1000%);
+	}
+	to {
+		transform: translateY(0%);
+	}
+}

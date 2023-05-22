@@ -23,14 +23,8 @@ using HTML/JS/CSS:</p>
 <p>Then, write down some functions names/descriptions that would be useful
 for this game.</p>
 </div>
-<div class="section" id="step-two-es2015">
-<h3>Step Two: ES2015</h3>
-<p>This code would benefit from updating to ES2015 style — there are lots
-of place where <cite>var</cite> is used that could be changed to either <cite>let</cite> or
-<cite>const</cite> to improve readability. Are there other style fixes you can make?</p>
-</div>
 <div class="section" id="step-three-makeboard">
-<h3>Step Three: <cite>makeBoard</cite></h3>
+<h3>Step Two: <cite>makeBoard</cite></h3>
 <p>The <cite>makeBoard()</cite> function needs to be implemented. It should set the global
 <cite>board</cite> variable to be an array of 6 arrays (height), each containing 7 items
 (width).</p>
@@ -50,13 +44,13 @@ the board and use the <cite>WIDTH</cite> and <cite>HEIGHT</cite> constants in <c
 this function to make this board dynamically.</p>
 </div>
 <div class="section" id="step-four-makehtmlboard">
-<h3>Step Four: <cite>makeHTMLBoard</cite></h3>
+<h3>Step Three: <cite>makeHTMLBoard</cite></h3>
 <p>This function is missing the first line, that sets the <cite>board</cite> variable to the
 HTML board DOM node. Fix this.</p>
 <p>Add comments to the code that dynamically creates the HTML table.</p>
 </div>
 <div class="section" id="step-five-placeintable-piece-css">
-<h3>Step Five: <cite>placeInTable</cite> &amp; Piece CSS</h3>
+<h3>Step Four: <cite>placeInTable</cite> &amp; Piece CSS</h3>
 <p>This function should add a <cite>div</cite> inside the correct <cite>td</cite> cell in the HTML game
 board. This div should have the <cite>piece</cite> class on it, and should have a class
 for whether the current player is 1 or 2, like <cite>p1</cite> or <cite>p2</cite>.</p>
@@ -70,7 +64,7 @@ see a piece appear at the very bottom of that column. (They won’t yet appear i
 the right row and will always be player #1 pieces)</p>
 </div>
 <div class="section" id="step-six-handleclick">
-<h3>Step Six: <cite>handleClick</cite></h3>
+<h3>Step Five: <cite>handleClick</cite></h3>
 <p>There are several pieces to write/fix here:</p>
 <ul class="simple">
 <li>this never updates the <cite>board</cite> variable with the player #. Fix.</li>
@@ -81,7 +75,7 @@ place for a ternary function.</li>
 </ul>
 </div>
 <div class="section" id="step-seven-findspotforcol-and-endgame">
-<h3>Step Seven: <cite>findSpotForCol</cite> and <cite>endGame</cite></h3>
+<h3>Step Six: <cite>findSpotForCol</cite> and <cite>endGame</cite></h3>
 <p>Right now, the game drops always drops a piece to the top of the column,
 even if a piece is already there. Fix this function so that it finds the
 lowest empty spot in the game board and returns the y coordinate (or
@@ -89,13 +83,13 @@ lowest empty spot in the game board and returns the y coordinate (or
 <p>Once you have this working, make sure that when a game has ended, the endGame function runs and alerts which user has won!</p>
 </div>
 <div class="section" id="step-eight-celebrate">
-<h3>Step Eight: CELEBRATE!</h3>
+<h3>Step Seven: CELEBRATE!</h3>
 <p>If you got this far, you should have a fully functional Connect Four game.
 Congratulations!</p>
 </div>
 </div>
 <div class="section" id="further-study">
-<h2>Further Study</h2>
+<h2>Step Eight: Further Study</h2>
 <div class="section" id="optional-step-nine-read-comment-checkforwin">
 <h3>Optional Step Nine: Read &amp; Comment <cite>checkForWin</cite></h3>
 <p>The <cite>checkForWin()</cite> function is already written, but it needs comments to help
@@ -108,7 +102,7 @@ advanced than the rest of this exercise. You can come back to this code
 much later!]</p>
 </div>
 <div class="section" id="optional-step-ten-add-animation">
-<h3>Optional Step Ten: Add Animation!</h3>
+<h3>Optional Step Nine: Add Animation!</h3>
 <p>You can learn about CSS animation features (check out MDN!). If you change the
 <cite>.piece</cite> divs to be positioned absolutely, you can animate the <cite>top</cite> CSS
 property to animate the pieces so they appear to drop down. This is tricky,

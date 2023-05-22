@@ -1,14 +1,14 @@
-/* game board table */
+/* game board table, sizes based on window */
 #board td {
-  width: 60px;
-  height: 60px;
+  width: calc(min(13vw,11vh));
+  height: calc(min(13vw,11vh));
   border: solid 2px #666;
 }
 
 /* pieces are div within game table cells drawn as colored circles */
 .piece {
   border-radius: 50%;
-  margin: 3px;
+  margin: 5%;
   width: 90%;
   height: 90%;
   animation: append-animate 0.5s linear;

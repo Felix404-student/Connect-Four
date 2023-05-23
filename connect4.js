@@ -1,4 +1,4 @@
-/** 
+/**
  * Author: Justin Brown
  * Assignment: Connect Four for UMass/Springboard Bootcamp
  *
@@ -17,10 +17,10 @@ let dispPlayer = document.getElementById("currentPlayer");
 // makeBoard: create in-JS board structure, a matrix
 // board = array of rows, each row is array of cells  (board[y][x])
 function makeBoard() {
-  for(let i = 0; i < HEIGHT; i++) {
+  for (let i = 0; i < HEIGHT; i++) {
     board[i] = new Array(WIDTH);
   }
-} 
+}
 
 // makeHtmlBoard: make HTML table and row of column tops.
 function makeHtmlBoard() {
@@ -35,7 +35,8 @@ function makeHtmlBoard() {
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");
     headCell.setAttribute("id", x);
-    headCell.innerHTML = "<img alt=\"arrow\" src=\"arrow.png\" height=\"100%\" width=\"100%\"></img>";
+    headCell.innerHTML =
+      "<img alt='arrow' src='arrow.png' height='100%' width='100%'>";
     top.append(headCell);
   }
   htmlBoard.append(top);
@@ -54,13 +55,11 @@ function makeHtmlBoard() {
 
 // findSpotForCol: given column x, return top empty y (null if column full)
 function findSpotForCol(x) {
-  for (let y = HEIGHT-1; y >=0; y--) {
-    if(board[y][x] !== 1 && board[y][x]!== 2) {
-      // console.log("Y = "+y);                                                       // FOR TESTING
+  for (let y = HEIGHT - 1; y >= 0; y--) {
+    if (!board[y][x]) {
       return y;
     }
   }
-  // console.log(`Column ${x} full`);                                                 // FOR TESTING
   return null;
 }
 
@@ -71,23 +70,24 @@ function placeInTable(y, x) {
   const piece = document.createElement("div");
   piece.classList.add("piece", `player${currPlayer}piece`);
 
-  const cell = document.getElementById(`${y}-${x}`); // find correct TD for piece
+  // find correct TD for piece
+  const cell = document.getElementById(`${y}-${x}`);
 
   cell.append(piece);
 }
 
 // endGame: announce game end, which player won, reset game
 function endGame(msg) {
-  alert(msg);
-  location.reload();
+  setTimeout(function () {
+    alert(msg);
+    location.reload();
+  }, 100);
 }
 
 // handleClick: handle click of column top to play piece
 function handleClick(evt) {
   // get x from ID of clicked cell
   let x = +evt.target.parentElement.id;
-  console
-  // console.log("X = " + x);                                                         // FOR TESTING
 
   // get next spot in column (if none, ignore click)
   let y = findSpotForCol(x);
@@ -100,21 +100,12 @@ function handleClick(evt) {
 
   // check for a win for either player, display message for winning player
   if (checkForWin()) {
-    return setTimeout(function() {
-      if (currPlayer == 1) {
-        endGame("Red player won!");
-      } else {
-        endGame("Blue player won!");
-      }
-    }, 150);
+    endGame(`${currPlayer === 1 ? 'Red' : 'Blue'} player won!`)
   }
 
-  // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
+  // check for tie: check if all cells in board are filled; if so call, call endGame
   if (checkForTie()) {
-    return setTimeout(function() {
-        endGame("Game Over. It's a tie!");
-    }, 150);
+    endGame("Game Over. It's a tie!");
   }
 
   // switch players and change player displayed
@@ -150,10 +141,30 @@ function checkForWin() {
   // loops over matrix by row and column, checking from every given (y,x)
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
-      let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]]; // checks (y,x) and 3 squares to the right ➡
-      let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]]; // checks (y,x) and 3 squares down ⬇
-      let diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]]; // checks (y,x) and 3 squares down/right ↘
-      let diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]]; // checks (y,x) and 3 squares down/left ↙
+      let horiz = [
+        [y, x],
+        [y, x + 1],
+        [y, x + 2],
+        [y, x + 3],
+      ]; // checks (y,x) and 3 squares to the right ➡
+      let vert = [
+        [y, x],
+        [y + 1, x],
+        [y + 2, x],
+        [y + 3, x],
+      ]; // checks (y,x) and 3 squares down ⬇
+      let diagDR = [
+        [y, x],
+        [y + 1, x + 1],
+        [y + 2, x + 2],
+        [y + 3, x + 3],
+      ]; // checks (y,x) and 3 squares down/right ↘
+      let diagDL = [
+        [y, x],
+        [y + 1, x - 1],
+        [y + 2, x - 2],
+        [y + 3, x - 3],
+      ]; // checks (y,x) and 3 squares down/left ↙
 
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;

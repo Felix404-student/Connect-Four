@@ -1,72 +1,68 @@
-body {
-  background-color: BlanchedAlmond;
+/* game board table, sizes based on window */
+#board td {
+  width: calc(min(13vw,11vh));
+  height: calc(min(13vw,11vh));
+  border: solid 2px #666;
+}
+
+/* pieces are div within game table cells drawn as colored circles */
+.piece {
+  border-radius: 50%;
+  border: solid 1px #666;
+  margin: 5%;
+  width: 90%;
+  height: 90%;
+  animation: append-animate 0.5s linear;
+}
+
+/* makes pieces red/blue, depending on player 1/2 */
+.player1piece {
+  background-color: red;
+}
+.player2piece {
+  background-color: blue;
+}
+
+/* makes label red/blue, depending on player 1/2 */
+.player1 {
+  color: red;
+}
+.player2 {
+  color: blue;
+}
+
+/* column-top is table row of clickable areas for each column */
+#column-top td {
+  border: dashed 1px lightgray;
+}
+
+#column-top td:hover {
+  background-color: darkgrey;
 }
 
 h1 {
-  background-color: BlanchedAlmond;
-  color: black;
-  font-family: 'Lora', serif;
+  margin-top: 1px;
+  margin-bottom: 7px;;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
 }
 
-h2 {
-  background-color: BlanchedAlmond;
-  color: black;
-  font-family: 'Lora', serif;
-  margin: 10px;
-}
-
-.reset {
-  float: right;
-}
-
-#game div {
-  width: 10vw;
-  height: 26vh;
-  margin: 7px;
-  display: inline-block;
-  perspective: 1000px;
-}
-
-div div:hover {
-  cursor: pointer;
-}
-
-.game-card {
-  width: 100%;
-  height: 100%;
-  align-items: center;
+h3 {
+  line-height: 10px;
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
-  border: 2px solid black;
-  border-radius: 10px;
-  transition: transform 0.9s;
-  transform-style: preserve-3d;
+  align-items: center;
 }
 
-.card-front, .card-back {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  right: -4.1%;
-  top: -2.7%;
-  border-radius: 10px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.card-front {
-  transform: rotateY( 180deg );
-}
-
-.card-back {
-  background-image: url("cardback.png");
-  background-size: 100% 100%;
-}
-
-.game-card.flip {
-  transform: rotateY( -180deg );
+@keyframes append-animate {
+	from {
+		transform: translateY(-1000%);
+	}
+	to {
+		transform: translateY(0%);
+	}
 }

@@ -12,7 +12,12 @@
 </head>
 <body>
   <h1><strong>CONNECT FOUR!</strong></h1>
-  <h3><strong><span id="currentPlayer" class="player1">Red</span> Player's Turn</strong></h3>
+  <form id="colorInput">
+    <input id="p1-color" placeholder="Player 1 color">
+    <input id="p2-color" placeholder="Player 2 color">
+    <button id="start-game" type="submit">Start Game!</button>
+  </form>
+  <h3><strong><span id="currentPlayer"></span></strong></h3>
   <div id="game">
     <table id="board"></table>
   </div>

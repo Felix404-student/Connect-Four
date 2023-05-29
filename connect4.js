@@ -24,6 +24,7 @@ function makeBoard() {
 
 // makeHtmlBoard: make HTML table and row of column tops.
 function makeHtmlBoard() {
+  let htmlGame = document.getElementById("game");
   let htmlBoard = document.getElementById("board");
 
   // creates clickable header row above the board for piece placing
@@ -35,11 +36,10 @@ function makeHtmlBoard() {
   for (let x = 0; x < WIDTH; x++) {
     let headCell = document.createElement("td");
     headCell.setAttribute("id", x);
-    headCell.innerHTML =
-      "<img alt='arrow' src='arrow.png' height='100%' width='100%'>";
+    headCell.innerHTML = "<img alt='arrow' src='arrow.png' height='100%' width='100%'>";
     top.append(headCell);
   }
-  htmlBoard.append(top);
+  htmlGame.prepend(top);
 
   // makes HTML grid of TDs based on Height/Width consts to mimic board matrix
   for (let y = 0; y < HEIGHT; y++) {
@@ -100,7 +100,7 @@ function handleClick(evt) {
 
   // check for a win for either player, display message for winning player
   if (checkForWin()) {
-    endGame(`${currPlayer === 1 ? 'Red' : 'Blue'} player won!`)
+    endGame(`${currPlayer === 1 ? 'Red' : 'Yellow'} player won!`)
   }
 
   // check for tie: check if all cells in board are filled; if so call, call endGame
@@ -111,7 +111,7 @@ function handleClick(evt) {
   // switch players and change player displayed
   if (currPlayer === 1) {
     currPlayer = 2;
-    dispPlayer.firstChild.data = "Blue";
+    dispPlayer.firstChild.data = "Yellow";
     dispPlayer.classList.remove("player1");
     dispPlayer.classList.add("player2");
   } else {

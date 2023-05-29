@@ -10,7 +10,7 @@
 
 /* background images for the "holes" */
 #board td {
-  background-image: url("/placeholder.png");
+  background-image: url("placeholder.png");
   background-size: cover;
 }
 
@@ -27,12 +27,12 @@
 /* makes pieces red/gold, depending on player 1/2 */
 .player1piece {
   background-color: red;
-  background-image: url("/red.png");
+  background-image: url("red.png");
   background-size: cover;
 }
 .player2piece {
   background-color: gold;
-  background-image: url("/yellow.png");
+  background-image: url("yellow.png");
   background-size: cover;
 }
 
